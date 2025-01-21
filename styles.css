@@ -1,0 +1,466 @@
+.custom-font1 {
+    font-family: 'Poltawski Nowy', sans-serif; /* 사용할 웹폰트 */
+    margin: 0; /* 기본 여백 제거 */
+    padding: 0; /* 패딩도 제거 */
+}
+
+.custom-font2 {
+    font-family: 'UnifrakturMaguntia'; /* 사용할 웹폰트 */
+    font-size: 100px;
+    margin: 0; /* 기본 여백 제거 */
+    padding: 0; /* 패딩도 제거 */
+}
+
+.group1 {
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 세로 방향으로 배치 */
+    margin: 0;
+    padding: 0;
+}
+
+.group2 {
+    display: flex;
+    gap: 2vw; /* 요소 간의 간격을 10px로 설정 */
+}
+
+.year {
+    font-size: 13vw; /* 글자 크기 설정 */
+    letter-spacing: 1vw;
+    font-weight: bold; /* 두껍게 */
+    margin-bottom: -3vw; /* 기본 여백 제거 */
+    padding: 0; /* 패딩도 제거 */
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+}
+
+.month {
+    font-size: 6.4vw; /* 글자 크기 설정 */
+    letter-spacing: -0.2vw;
+    font-weight: normal; /* 보통 두께 */
+    margin-top: -0.2vw;
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+}
+
+.day {
+    font-weight: bold; /* 두껍게 */
+    margin-top: 0; /* 기본 여백 제거 */
+    padding: 0; /* 패딩도 제거 */
+    font-size: 25vw; /* 글자 크기 설정 (비율로 설정) */
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+}
+
+.time {
+    letter-spacing: 0.45vw; /* 뷰포트 너비의 0.2%로 자간 설정 */
+    font-size: 3.3vw; /* 뷰포트 너비의 5%로 폰트 크기 설정 */
+}
+
+#main {
+    display: flex; /* Flexbox 사용 */
+    flex-direction: column; /* 세로 방향으로 배치 */
+    align-items: center; /* 가로 방향 중앙 정렬 */
+    justify-content: center; /* 세로 방향 중앙 정렬 */
+    height: 100vh; /* 전체 높이 설정 */
+}
+
+#dday-display{
+    align-items: center; /* 가로 방향 중앙 정렬 */
+    justify-content: center; /* 세로 방향 중앙 정렬 */
+    height: 50vh; /* 전체 높이 설정 */
+
+}
+
+
+#intro {
+    line-height: 8vw;
+    height: 100vh; /* 전체 높이 설정 */
+    align-items: center; /* 가로 방향 중앙 정렬 */
+    justify-content: center; /* 세로 방향 중앙 정렬 */
+}
+
+#grbr {
+    height: 100vh; /* 전체 높이 설정 */
+}
+
+.baby {
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: space-between; /* 항목 간 간격을 균등하게 배치 */
+}
+
+.baby-item {
+    border-radius: 10px; /* 갤러리 아이템 모서리 둥글게 만들기 */
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+    padding: 0px;
+    margin: 0px 1vw 5vw 1vw;
+}
+
+.baby-item img {
+    border-radius: 10px; /* 모서리 둥글게 만들기 */
+    width: 80%; /* 이미지 너비 100% */
+}
+
+.caption {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-top: 0.1em; /* 캡션과 이미지 간 간격 */
+    font-size: 1em;
+}
+
+
+
+
+.gallery {
+    display: grid; /* 그리드 레이아웃 사용 */
+    grid-template-columns: repeat(3, 1fr); /* 3열로 구성 */
+    gap: 5px; /* 이미지 간 간격 */
+    padding: 5px; /* 갤러리 패딩 */
+}
+
+.gallery-item {
+    width: 100%; /* 이미지 너비 100% */
+    height: 0; /* 높이를 0으로 설정 */
+    padding-top: 100%; /* 정방형을 만들기 위해 높이를 비율로 설정 (1:1 비율) */
+    position: relative; /* 자식 요소를 절대 위치로 설정하기 위해 필요 */
+    overflow: hidden; /* 넘치는 부분은 숨김 */
+    transition: transform 0.2s; /* 확대 효과 부드럽게 */
+    border-radius: 5px; /* 갤러리 아이템 모서리 둥글게 만들기 */
+}
+
+.gallery-item img {
+    position: absolute; /* 절대 위치 */
+    top: 50%; /* 상단 정렬을 중앙으로 조정 */
+    left: 50%; /* 좌측 정렬을 중앙으로 조정 */
+    width: 100%; /* 너비 100% */
+    height: 100%; /* 높이 100% */
+    object-fit: cover; /* 이미지 비율 유지하며 잘림 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위해 위치 조정 */
+}
+
+
+
+.lightbox {
+    display: none; /* 기본적으로 보이지 않음 */
+    position: fixed; /* 화면 고정 위치 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 전체 화면 너비 */
+    height: 100%; /* 전체 화면 높이 */
+    background: rgba(0, 0, 0, 0.8); /* 반투명 배경 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.lightbox-img {
+    max-width: 90%; /* 최대 너비 90% */
+    max-height: 90%; /* 최대 높이 90% */
+}
+
+.close {
+    position: absolute; /* 절대 위치 */
+    top: 20px; /* 상단 여백 */
+    right: 30px; /* 우측 여백 */
+    color: white; /* 글자 색상 */
+    font-size: 30px; /* 글자 크기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 */
+}
+
+.lightbox-controls {
+    position: absolute; /* 절대 위치 */
+    bottom: 20px; /* 하단 여백 */
+    display: flex; /* 수평 정렬 */
+    justify-content: space-between; /* 좌우 버튼 간격 조정 */
+    width: 100%; /* 전체 너비 */
+    padding: 0 20px; /* 좌우 패딩 */
+}
+
+
+
+.parents {
+    display: flex; /* Flexbox 레이아웃 사용 */
+    justify-content: space-between; /* 항목 간 간격을 균등하게 배치 */
+}
+
+.parents-item {
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+    padding: 0px;
+    margin: 0vw 0vw 5vw 0vw;
+    padding-top: 5vw;
+
+}
+
+.parents-item img {
+    border-radius: 100%; /* 모서리 둥글게 만들기 */
+    width: 80%; /* 이미지 너비 100% */
+}
+
+/*여기까지 완료!!!*/
+
+
+
+.container {
+    max-width: 800px; /* 최대 너비 설정 */
+    text-align: left; /* 텍스트 좌측 정렬 */
+    padding: 5%;
+}
+
+h1 {
+    text-align: center; /* 제목 중앙 정렬 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+.map {
+    text-align: center; /* 지도 중앙 정렬 */
+    margin: 20px; /* 아래쪽 여백 */
+}
+
+.map img {
+    width: 100%; /* 이미지 너비 100% */
+    height: auto; /* 비율에 맞춰 높이 자동 조정 */
+    border-radius: 10px; /* 모서리 둥글게 */
+}
+
+.info {
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+.buttons {
+    text-align: center; /* 버튼 중앙 정렬 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+}
+
+.buttons button {
+    width: 30%; /* 버튼의 가로 길이를 100%로 설정 */
+    padding: 4px; /* 버튼 내부 여백 설정 */
+    background-color: #655C50; /* 버튼 배경색 설정 */
+    color: #F9F6F3; /* 버튼 텍스트 색상 설정 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 설정 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    font-family: Gowun Batang, sans-serif;
+    font-size: 4vw; /* 버튼 텍스트 크기 설정 */
+    margin-top: 10px; /* 버튼 위쪽 여백 */
+    margin-bottom: 8px;
+}
+
+
+.disclaimer {
+    margin: 10px; /* 아래쪽 여백 */
+    padding: 3vw;
+    font-size: 3.2vw; /* 폰트 크기 조정 */
+    color: #655C50; /* 색상 조정 */
+    background-color: #ffffff;
+}
+
+
+
+ul {
+    list-style-type: none; /* 기본 리스트 스타일 제거 */
+    padding: 0; /* 패딩 제거 */
+}
+
+ul li {
+    margin-bottom: 1px; /* 아래쪽 여백 */
+    font-size: 1.2em;
+}
+
+
+.account-section {
+    margin: 3vw;
+}
+
+.toggle-button {
+    width: 100%; /* 가로로 꽉 차게 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 계산 */
+    padding: 1em;
+    background-color: #655C50;
+    color: #F9F6F3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.dropdown {
+    display: none; /* 기본적으로 드롭다운 숨김 */
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dropdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.copy-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.copy-button:hover {
+    background-color: #5a6268;
+}
+
+
+
+
+body {
+    font-family: Gowun Batang, sans-serif;
+    font-size: 3vw; /* 화면 너비의 3%에 해당하는 크기로 설정 */
+    color: #655C50; /* 글자색 */
+    margin: 0;
+    padding: 0;
+    background-color: #F9F6F3; /* 배경컬러 */
+    text-align: center;
+}
+
+h1 {
+    font-size: 4em; /* h1 요소의 글씨 크기 설정 (em 단위) */
+    margin: 0;
+    padding: 0;
+}
+
+
+h3 {
+    font-size: 2em; /* h1 요소의 글씨 크기 설정 (em 단위) */
+    width: 100%; /* 가로 전체 차지 */
+    margin-top: 0px; /* 위쪽 여백 */
+    margin-bottom: 0.5em;
+}
+h4 {
+    font-size: 1.5em; /* h1 요소의 글씨 크기 설정 (em 단위) */
+    margin-top: 20px; /* 위쪽 여백 */
+    margin-bottom: 10px; /* 아래쪽 여백 */
+}
+
+p {
+    font-size: 1.2em; /* p 요소의 글씨 크기 설정 (em 단위) */
+    margin: 0;
+    padding: 0;
+}
+
+h5 {
+    font-size: 1.1em; /* p 요소의 글씨 크기 설정 (em 단위) */
+    text-align: left;
+    margin-top: 0.7em;
+    margin-bottom: 0.5em;
+    padding: 0;
+
+}
+
+
+
+
+
+
+
+.popup {
+    position: fixed; /* 화면에 고정 */
+    top: 50%; /* 화면 중앙 위쪽 */
+    left: 50%; /* 화면 중앙 왼쪽 */
+    transform: translate(-50%, -50%); /* 중앙 정렬 */
+    width: 80%; /* 너비를 화면의 80%로 설정 */
+    max-width: 400px; /* 최대 너비 설정 */
+    height: auto; /* 높이는 자동 조절 */
+    max-height: 80%; /* 최대 높이를 화면의 80%로 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤 가능 */
+    background-color: white; /* 배경색 설정 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    z-index: 10000; /* 최상위 레이어 */
+    padding: 20px; /* 내부 여백 */
+    display: none; /* 기본적으로 숨김 */
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup.visible {
+    display: block;
+}
+
+.popup-button {
+    width: 100%; /* 버튼의 가로 길이를 100%로 설정 */
+    padding: 6px; /* 버튼 내부 여백 설정 */
+    background-color: #655C50; /* 버튼 배경색 설정 */
+    color: #F9F6F3; /* 버튼 텍스트 색상 설정 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 설정 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    font-family: Gowun Batang, sans-serif;
+    font-size: 4vw; /* 버튼 텍스트 크기 설정 */
+    margin-top: 10px; /* 버튼 위쪽 여백 */
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease; /* 배경색 변화 효과 */
+}
+.overlay {
+    position: fixed; /* 화면에 고정 */
+    top: 0; /* 화면 상단 */
+    left: 0; /* 화면 왼쪽 */
+    width: 100%; /* 전체 너비 */
+    height: 100%; /* 전체 높이 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경색 */
+    z-index: 999; /* 팝업보다 아래에 위치 */
+    display: none; /* 기본적으로 숨김 */
+}
+
+.attendance-selection,
+.side-selection {
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: space-between; /* 버튼 사이의 공간을 균등하게 분배 */
+}
+
+.attendance-button,
+.side-button {
+    flex: 1;
+    padding: 7px;
+    margin: 0 3px;
+    text-align: center;
+    background-color: #EAE7E3; /* 기본 배경색 */
+    border: none; /* 테두리 없애기 */
+    font-family: inherit; /* 부모 요소의 글꼴을 상속받기 */
+    font-size: 3.5vw;
+    color: #655C50;
+}
+.attendance-button:first-child,
+.side-button:first-child {
+    margin-left: 0; /* 첫 번째 버튼의 왼쪽 마진 제거 */
+}
+
+.attendance-button:last-child,
+.side-button:last-child {
+    margin-right: 0; /* 마지막 버튼의 오른쪽 마진 제거 */
+}
+
+.attendance-button.active,
+.side-button.active {
+    background-color: #655C50; /* 선택된 배경색 */
+    color: #EAE7E3; /* 선택된 텍스트 색상 */
+    font-family: inherit; /* 부모 요소의 글꼴을 상속받기 */
+
+}
+input[type="text"],
+input[type="number"] {
+    padding: 7px;
+    margin-bottom: 10px;
+    background-color: #EAE7E3;
+    border: none; /* 테두리 없애기 */
+    width: 100%; /* 가로로 꽉 차게 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 계산 */
+    font-family: inherit; /* 부모 요소의 글꼴을 상속받기 */
+}
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #655C50; /* 포커스 시 테두리 색상 */
+    outline-color: #655C50;
+}
+.adjust-transform {
+    transform: translateY(-0.1em); /* 텍스트를 위로 5px 이동 */
+    display: inline-block; /* 내용에 맞춰 가로 길이 조정 */
+    width: auto;
+}

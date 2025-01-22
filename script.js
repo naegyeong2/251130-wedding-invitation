@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     
-
+/*
     // 페이지 진입 시 RSVP1 표시
     setTimeout(() => {
         overlay.style.display = 'block'; // 오버레이 보이기

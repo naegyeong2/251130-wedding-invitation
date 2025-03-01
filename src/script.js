@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const privacyConsentCheckbox1 = document.getElementById('privacy-consent-1');
     const submitAttendanceButton = document.getElementById('submit-attendance');
     
-    
+    //add something
 
     // 디데이 카운트다운 설정
     const targetDate = new Date('2025-11-30T16:50:00');

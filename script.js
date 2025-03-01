@@ -198,5 +198,5 @@ overlay.addEventListener('click', () => {
     popup.classList.remove('visible'); // RSVP 팝업 숨기기
     attendancePopup.classList.remove('visible'); // 참석 여부 팝업 숨기기
 });
-
+*/
 });

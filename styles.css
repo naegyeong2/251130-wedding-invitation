@@ -1,139 +1,192 @@
-/* 기본 폰트 및 배경 */
-body {
-    font-family: 'Gowun Batang', sans-serif;
-    font-size: 3vw;
-    color: #655C50;
+/***********************************************************
+ * 1. 변수 (커스텀 프로퍼티)
+ ***********************************************************/
+ #main,
+ #dday,
+ #intro,
+ #grbr,
+ #parents,
+ #loca,
+ #account {
+   margin-bottom: 13rem; /* 섹션 간격 (원하는 값으로 조절 가능) */
+ }
+ 
+ h3 {
+  margin-bottom: 1.5rem; /* 기본보다 여유 있게 */
+}
+ :root {
+ 
+    
+    /* 폰트 */
+    --font-base: 'Gowun Batang', sans-serif;
+    --font-heading: 'Poltawski Nowy', sans-serif;
+    --font-deco: 'UnifrakturMaguntia', cursive;
+  
+    /* 폰트 크기 및 간격 */
+    --fz-base: 0.8rem;
+    --fz-heading: 1.6rem;
+    --line-height-base: 1.6;
+    --spacing-section: 1rem;
+    --spacing-inner: 1rem;
+    
+  }
+  
+  /***********************************************************
+   * 2. 기본 리셋 & 전역 스타일
+   ***********************************************************/
+  * {
     margin: 0;
     padding: 0;
-    background-color: #F9F6F3;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    font-family: var(--font-base);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: var(--line-height-base);
     text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0.5rem; /* 기본 여백 */
+  }
+  p {
+    font-size: var(--fz-base);
+    margin-bottom: 1rem; /* 기본 문단 간격 */
+  }
+
+  
+  /* 데스크탑: 최대 너비 제한 */
+  body {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #F9F6F3
   }
   
-  /* 반응형 레이아웃: 600px 이상에서는 최대 너비를 제한 */
-  @media screen and (min-width: 600px) {
-    body {
-      max-width: 600px;
-      margin: 0 auto; /* 중앙 정렬 */
-    }
-  }
+  /***********************************************************
+ * 3. 공통 유틸리티 - 버튼 스타일
+ ***********************************************************/
+ .btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+  background-color: #F1EDEB;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #35322e;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: var(--font-base)
+}
+
+.copy-button {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background-color: #655C50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: var(--font-base)
+
+}
+
   
-  /* 커스텀 폰트 스타일 */
+  /***********************************************************
+   * 4. 날짜(메인 헤더) 관련
+   ***********************************************************/
   .custom-font1 {
-    font-family: 'Poltawski Nowy', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-heading);
   }
-  
   .custom-font2 {
-    font-family: 'UnifrakturMaguntia';
-    font-size: 100px;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-deco);
+    font-size: 8rem;
   }
   
-  /* 날짜 관련 */
   .group1 {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
   }
-  
   .group2 {
     display: flex;
     gap: 2vw;
   }
+  /* 날짜/타이틀 영역 */
+  .main-title-img {
+    width: 80%;        /* 화면 너비의 90% */
+    max-width: 600px;  /* 너무 커지지 않도록 제한 */
+    height: auto;      /* 비율 유지 */
+    display: block;
+    margin: 17rem auto 17rem auto;
+    }
   
-  .year {
-    font-size: 13vw;
-    letter-spacing: 1vw;
-    font-weight: bold;
-    margin-bottom: -3vw;
-  }
-  
-  .month {
-    font-size: 6.4vw;
-    letter-spacing: -0.2vw;
-    margin-top: -0.2vw;
-  }
-  
-  .day {
-    font-weight: bold;
-    margin-top: 0;
-    font-size: 25vw;
-  }
-  
-  .time {
-    letter-spacing: 0.45vw;
-    font-size: 3.3vw;
-  }
-  
-  /* 메인, 디데이, 인트로 영역 */
+  /***********************************************************
+   * 5. 메인, 디데이, 인트로
+   ***********************************************************/
+  /* 메인 섹션 (#main) */
   #main {
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
   }
   
+  /* 디데이 영역 (#dday-display) */
   #dday-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
+    margin-bottom: 1.5rem;
   }
   
+  /* 인트로 (#intro) */
   #intro {
-    line-height: 8vw;
-    height: 100vh;
+    padding: 1rem;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  #intro p {
+    font-size: clamp(12px, 3vw, 18px);
+    line-height: 1.8; /* 문단 간격 유지 */
+  }
+
+  #dday-countdown{
+    margin: 3vw 5vw 15vw 5vw;
+  }
+  
+  /***********************************************************
+   * 6. 갤러리, 라이트박스
+   ***********************************************************/
+   #baby {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 5vw;.baby-item
+    padding-top: 5vw;
   }
-  
-  /* 신랑 & 신부 영역 */
-  #grbr {
-    height: auto;
-    padding-bottom: 3vw;
-  }
-  
-  .baby-item {
-    border-radius: 10px;
-    display: inline-block;
-    margin: 0 1vw 5vw 1vw;
-  }
-  
   .baby-item img {
-    border-radius: 10px;
+    border-radius: 50%;
     width: 80%;
   }
   
-  .caption {
-    text-align: center;
-    margin-top: 0.1em;
-    font-size: 1em;
-  }
-  
-  /* 갤러리 */
   .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     padding: 5px;
   }
-  
   .gallery-item {
     width: 100%;
     height: 0;
     padding-top: 100%;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s;
     border-radius: 5px;
+    transition: transform 0.2s;
   }
-  
   .gallery-item img {
     position: absolute;
     top: 50%;
@@ -144,243 +197,425 @@ body {
     transform: translate(-50%, -50%);
   }
   
-  /* 라이트박스 */
   .lightbox {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #35322e80; /* 50% 투명 */
     justify-content: center;
     align-items: center;
     z-index: 1000;
   }
-  
   .lightbox-img {
     max-width: 90%;
     max-height: 90%;
   }
-  
-  .close {
+  .lightbox .close {
     position: absolute;
     top: 20px;
     right: 30px;
-    color: white;
-    font-size: 30px;
+    font-size: 2rem;
+    color: #F9F6F3;
     cursor: pointer;
   }
-  
   .lightbox-controls {
     position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: space-between;
+    top: 50%;                       /* 세로 중앙 */
+    left: 0;
     width: 100%;
-    padding: 0 20px;
-  }
-  
-  /* 부모님 영역 */
-  #parents {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 5vw;
+    justify-content: space-between; /* 좌우 정렬 */
+    transform: translateY(-50%);    /* 중앙 보정 */
+    padding: 0 10px;
+    z-index: 1100;                  /* 이미지 위에 오도록 */
   }
   
-  .parents-item {
-    display: inline-block;
-    margin: 0 0 5vw 0;
-    padding-top: 5vw;
+  .lightbox-controls span {
+    font-size: 2rem;              /* 아이콘 크기 */
+    color: #F9F6F3;                 /* 흰색 */
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
   }
   
-  .parents-item img {
-    border-radius: 100%;
-    width: 80%;
-  }
+  /***********************************************************
+   * 7. 부모님, 지도, 교통 정보
+   ***********************************************************/
+
+
+/* 제목과 설명 */
+.parents-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 부모님 리스트: 좌우 배치 */
+.parents-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem; /* 부모님 사이 간격 */
+  margin: 3rem 0rem 3rem 0rem;
+}
+
+/* 각 부모님 */
+.parents-item {
+  text-align: center;
+}
+
+.parents-item img {
+  border-radius: 50%;
+  width: 120px; /* 원하는 크기로 */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.parents-item .caption {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
   
-  /* 지도 및 교통정보 */
   .container {
     max-width: 800px;
     text-align: left;
+    margin: 1rem auto;
     padding: 5%;
   }
-  
-  h1, h3, h4, h5 {
-    margin: 0.5em 0;
-  }
-  
   .map {
     text-align: center;
-    margin: 20px;
+    padding: 10px;
   }
-  
   .map img {
     width: 100%;
     height: auto;
     border-radius: 10px;
   }
-  
-  .info, .disclaimer {
-    margin: 10px;
+  .info {
     padding: 3vw;
-    font-size: 3.2vw;
+    font-size: min(3vw, 18px);
+    background-color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .parking {
+    padding: 3vw;
+    font-size: min(3vw, 18px);
+    margin: 10px 0px;
+    background-color: #ffffff;
+  }
+
+  .scroll-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 166px;
+    background: #ffffff;
+    padding: 0.5rem 0;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+
+
+  .scroll-track {
+    display: inline-flex;
+    background: #ffffff;
+    height: 150px;
+    gap: 0.5rem;
+    animation: scroll-left 30s linear infinite;
   }
   
+  .scroll-track img {
+    background: #fff;   /* 이미지 뒤에도 흰색 강제 */
+    width: 150px;        /* 가로 고정 */
+    height: 150px;       /* 세로도 똑같이 고정해서 정방형 */
+    object-fit: cover;   /* 긴 쪽은 잘라내고 */
+    object-position: center; /* 중앙 정렬 */
+  }
+
   .buttons {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between; /* 버튼 사이 동일한 간격 */
+    gap: 8px; /* 버튼 사이 여백 고정 (원하는 값) */
+    margin: 10px 0px;
   }
   
   .buttons button {
-    width: 30%;
-    padding: 4px;
-    background-color: #655C50;
-    color: #F9F6F3;
+    flex: 1; /* 버튼이 남은 공간 균등 분배 */
+    padding: 8px;
+    background-color: #F1EDEB;
+    color: #35322e;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: 'Gowun Batang', sans-serif;
-    font-size: 4vw;
-    margin: 10px 0;
-  }
+    font-family: Gowun Batang, sans-serif;
+    font-size: min(4vw, 20px);  }
   
-  /* 계좌번호 드롭다운 영역 */
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+
+  .transport-section {
+    font-family: Apple SD Gothic Neo, sans-serif;
+    background-color: #fff;
+    padding: 15px 10px;
+  }
+
+  .transport-title {
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+
+  /* 공통 row 스타일 */
+  .row {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px 6px 10px;
+  }
+
+  /* 지하철 뱃지 */
+  .subway {
+    color: #fff;
+    background: #2d6de6; /* 파란색 (1호선) */
+    border-radius: 50%;
+    padding: 2.5px 8.3px 0.2px 8.3px;
+    margin-right: 8px;
+    font-weight: bold;
+    font-size: 0.7em;
+    white-space: nowrap;
+  }
+
+  /* 버스 뱃지 */
+  .bus {
+    display: inline-block;
+    padding: 2px 8px 1px 8px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+
+  /* 번호 텍스트 */
+  .numbers {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  /* 버스 색상 */
+  .bus.green { background: #3cb44a; }  /* 마을버스 */
+  .bus.blue { background: #2d6de6; }   /* 일반버스 */
+  .bus.purple { background: #8e44ad; } /* 간선버스 */
+  .bus.teal { background: #16a085; }   /* 지선버스 */
+  .bus.brown { background: #a0522d; }  /* 공항버스 */
+
+  
+  /***********************************************************
+   * 8. 달력 (calendar-view)
+   ***********************************************************/
+  /* 캘린더 컨테이너 */
+#calendar-view {
+
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0rem;
+  padding: 1rem;
+  background-color: #F1EDEB;
+  border-radius: 15px;
+}
+
+
+
+/* 캘린더 제목 */
+#calendar-view h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 캘린더 테이블 */
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.calendar th, 
+.calendar td {
+  width: 14.2%;   /* 7열 균등 분배 */
+  padding: 0.2rem 0;
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 요일 */
+.calendar th {
+  font-weight: 600;
+  color: #777;
+}
+
+/* 주말 색상 */
+.calendar th:first-child, .calendar td:first-child { color: #e57373; } /* 일요일 */
+.calendar th:last-child, .calendar td:last-child { color: #4a90e2; }  /* 토요일 */
+
+/* 이벤트 날짜 강조 */
+.event-day {
+  position: relative;
+  text-align: center;
+  overflow: visible;      /* 칸 밖으로 넘쳐도 보이게 */
+
+}
+
+.heart-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: #ffcece
+  overflow: visible;      /* 칸 밖으로 넘쳐도 보이게 */
+
+  stroke-width: 2;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transform: translate(-50%, -50%);
+  animation: drawHeart 2s ease forwards, fillHeart 1s ease 2s forwards;
+}
+
+.day-number {
+  position: relative;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #d32f2f;
+  z-index: 1;
+}
+
+@keyframes drawHeart {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillHeart {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #ffcece;
+  }
+}
+
+
+  
+  /***********************************************************
+   * 9. 계좌번호 드롭다운 (account-section)
+   ***********************************************************/
   .account-section {
-    margin: 3vw;
+    margin: 1rem auto;
+    padding: 0rem;
   }
-  
   .toggle-button {
     width: 100%;
-    box-sizing: border-box;
-    padding: 1em;
-    background-color: #655C50;
-    color: #F9F6F3;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
     text-align: left;
+    background-color: var(--color-button-main);
+    color: #fff;
   }
-  
   .dropdown {
     display: none;
-    margin-top: 10px;
-    background-color: #f0f0f0;
+    margin-top: 0.5rem;
+    background-color: #F1EDEB;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.1rem 0.8rem;   /* 위아래 0, 좌우 1rem */
   }
-  
   .dropdown-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    align-items: center;   /* 🔥 수직 가운데 정렬 */
+    padding: 0.5rem 0;
     border-bottom: 1px solid #ddd;
   }
   
-  .dropdown-item:last-child {
-    border-bottom: none;
+  .dropdown-item span:first-child {
+    flex: 1;             /* 🔥 남는 공간을 채움 */
+    text-align: left;    /* 텍스트는 왼쪽 정렬 */
+    font-size: 15px;
+    color: #35322e;
   }
   
-  .copy-button {
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 10px;
+  .account-bank {
+    margin-left: 10px;   /* 은행명-계좌번호 사이 여백 */
+    white-space: nowrap; /* 줄바꿈 방지 */
+    margin-right: 10px;   /* 은행명-계좌번호 사이 여백 */
+    font-size: 14px;
+    font-family: "Apple SD Gothic Neo", sans-serif;
+    color: #35322e;
   }
-  
-  .copy-button:hover {
-    background-color: #5a6268;
-  }
-  
-  /* 팝업 */
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 400px;
-    max-height: 80%;
-    overflow-y: auto;
-    background-color: white;
-    border-radius: 10px;
-    z-index: 10000;
-    padding: 20px;
-    display: none;
-  }
-  
-  .popup.visible {
-    display: block;
-  }
-  
+  /***********************************************************
+   * 10. 팝업 버튼, 커스텀 모달
+   ***********************************************************/
   .popup-button {
-    width: 100%;
-    padding: 6px;
-    background-color: #655C50;
-    color: #F9F6F3;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Gowun Batang', sans-serif;
-    font-size: 4vw;
-    margin: 10px 0;
-    transition: background-color 0.3s ease;
-  }
+    .popup-button {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0.8rem;
+      background-color: #f7f5f2;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+ 
   
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
-  }
-  
-  /* 입력폼 */
-  input[type="text"],
-  input[type="number"] {
-    padding: 7px;
-    margin-bottom: 10px;
-    background-color: #EAE7E3;
-    border: none;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: inherit;
-  }
-  input[type="text"]:focus,
-  input[type="number"]:focus {
-    border-color: #655C50;
-    outline-color: #655C50;
-  }
-  .adjust-transform {
-    transform: translateY(-0.1em);
-    display: inline-block;
-  }
-  
-  /* (2) 커스텀 모달 (custom-alert) */
   .modal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5); /* 반투명 배경 */
-    display: flex;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* 다른 팝업보다 위에 표시 */
+    z-index: 9999;
   }
-  
   .modal-content {
     background-color: #fff;
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
     width: 80%;
     max-width: 300px;
   }
+  
+  /***********************************************************
+   * 11. 반응형 (미디어 쿼리)
+   ***********************************************************/
+  /* 320px 이하(아주 작은 화면)에서 폰트, 패딩 조정 */
+  @media screen and (max-width: 320px) {
+    html, body {
+      font-size: 14px;
+      padding: 0.5rem;
+    }
+
+    .popup-button, .toggle-button, .copy-button {
+      font-size: 1rem;
+      padding: 0.5rem 0.8rem;
+    }
+    .year { font-size: 4rem; }
+    .month { font-size: 2rem; }
+    .day { font-size: 8rem; }
+    .time { font-size: 1.5rem; }
+  }
+
+
+  

@@ -2,8 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 모바일 최적화: 뷰포트 설정 및 확대 제한 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>모바일 청첩장</title>
+  
+  <!-- 아이콘 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <!-- 구글 폰트 -->
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
@@ -17,47 +22,115 @@
   <meta property="og:description" content="소중한 분들께 소식 전해드립니다." />
 </head>
 <body>
-  <!-- 메인 (날짜, 시간 등) -->
-  <div id="main">
-    <div class="group2">
-      <div class="group1">
-        <p class="custom-font1 year">2025</p>
-        <p class="custom-font1 month">NOVEMBER</p>
+  <!-- 메인: 날짜, 시간 등 -->
+  <!-- 메인: 날짜/시간 (이미지 버전) -->
+  <img src="메인 텍스트.png" alt="2025년 11월 30일, 16:50 광명무역센터컨벤션 웨딩홀" class="main-title-img" />
+  
+  <!-- 디데이 카운트다운 영역 -->
+  <div id="dday">
+    <div id="dday-display">
+      <p>재우 &amp; 내경의 결혼식</p>
+      <div id="dday-countdown"></div>
+      
+  <!-- 달력 보기 (내부 달력) 및 캘린더 추가하기 버튼 -->
+  <div id="calendar-view">
+    <h4>NOVEMBER 2025</h4>
+    <table class="calendar">
+        <thead>
+            <tr>
+              <th>Su</th>
+              <th>Mo</th>
+              <th>Tu</th>
+              <th>We</th>
+              <th>Th</th>
+              <th>Fr</th>
+              <th>Sa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+              <td>14</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+              <td>20</td>
+              <td>21</td>
+              <td>22</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>24</td>
+              <td>25</td>
+              <td>26</td>
+              <td>27</td>
+              <td>28</td>
+              <td>29</td>
+            </tr>
+            <tr>
+              <td class="event-day">
+                <svg class="heart-bg" viewBox="0 0 32 29.6">
+                  <path d="M23.6,0c-2.9,0-5.4,1.8-7.6,4.1C13.8,1.8,11.3,0,8.4,0
+                           C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
+                           C32,3.8,28.2,0,23.6,0z"/>
+                </svg>
+                <span class="day-number">30</span>
+              </td>
+              </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <p class="custom-font2 day">30</p>
+      <div class="calendar-section">
+        <button class="btn" id="add-calendar">캘린더 추가하기</button>
+      </div>
     </div>
-    <p class="time">16:50 pm 광명무역센터컨벤션 웨딩홀</p>
   </div>
-  
-  <!-- 디데이 -->
-  <div id="dday-display">
-    <p>재우 & 내경의 결혼식</p>
-    <div id="dday-countdown"></div>
-  </div>
-  
-  <!-- 함께 드리는 첫 인사 -->
+
+<!-- 함께 드리는 첫 인사 (스타일 변경) -->
   <div id="intro">
     <h3>함께 드리는 첫 인사</h3>
-    <p>
-      안녕하세요<br />
-      신랑 정재우 &amp; 신부 이내경 인사드립니다.
-    </p>
-    <p>
-      7년간 함께하며 소중한 추억을 쌓아온 저희는<br />
-      새로운 가정을 이루고 함께하는 삶을 시작하려 합니다.
-    </p>
-    <p>
-      오래도록 기억할 날이기에 소중한 분들을 모시고자 합니다.<br />
-      귀한 시간을 내어 축하해 주신다면<br />
-      깊은 감사한 마음 간직하며 서로 아끼며 살아가겠습니다.
-    </p>
-    <p>지금의 저희가 있게 해준 모든 분들께 진심으로 감사드립니다.</p>
+    <p>안녕하세요<br>신랑 정재우 & 신부 이내경 인사드립니다.</p>
+    <p>7년간 함께하며 소중한 추억을 쌓아온 저희는<br>새로운 가정을 이루고 함께하는 삶을 시작하려 합니다.</p>
+    <p>오래도록 기억할 날이기에<br>소중한 분들을 모시고자 합니다.<br>귀한 시간을 내어 축하해 주신다면<br>깊은 감사한 마음 간직하며 서로 아끼며 살아가겠습니다.</p>
+    <p>지금의 저희가 있게 해준 모든 분들께<br>진심으로 감사드립니다.</p>
   </div>
   
-  <!-- 신랑 & 신부 -->
+  <!-- 신랑 & 신부 영역 (사진, 갤러리, 라이트박스) -->
   <div id="grbr">
     <h3>신랑 &amp; 신부</h3>
-    <!-- 신랑신부 어릴때 사진 -->
     <div id="baby">
       <div class="baby-item">
         <img src="https://github.com/naegyeong2/251130-wedding-invitation/blob/main/jw.jpg?raw=true" alt="재우" />
@@ -68,8 +141,8 @@
         <div class="caption">신부 이내경 <span>📞</span></div>
       </div>
     </div>
-    <!-- 갤러리 -->
     <div class="gallery">
+      <!-- 갤러리 이미지들 -->
       <div class="gallery-item">
         <img src="https://github.com/naegyeong2/251130-wedding-invitation/blob/main/image1.jpg?raw=true" alt="사진 1" />
       </div>
@@ -98,152 +171,208 @@
         <img src="https://github.com/naegyeong2/251130-wedding-invitation/blob/main/image9.jpg?raw=true" alt="사진 9" />
       </div>
     </div>
-    <!-- 라이트박스 -->
     <div class="lightbox" id="lightbox">
       <span class="close" id="close">&times;</span>
       <img class="lightbox-img" id="lightbox-img" src="" alt="확대된 사진" />
       <div class="lightbox-controls">
-        <button id="prev">◀</button>
-        <button id="next">▶</button>
+        <span class="prev"><i class="fas fa-chevron-left"></i></span>
+        <span class="next"><i class="fas fa-chevron-right"></i></span>
       </div>
     </div>
   </div>
   
-  <!-- 신랑 & 신부의 부모님 -->
-  <h3>신랑 &amp; 신부의 부모님</h3>
-  <p>
-    사랑으로 길러주시고 저희의 앞날을 응원해주시는<br />
-    양가 부모님을 소개합니다.
-  </p>
-  <div id="parents">
+  <!-- 부모님 소개 -->
+<div id="parents">
+  <div class="parents-header">
+    <h3>신랑 &amp; 신부의 부모님</h3>
+    <p>
+      사랑으로 길러주시고 저희의 앞날을 응원해주시는<br />
+      양가 부모님을 소개합니다.
+    </p>
+  </div>
+  <!-- 재우 부모님 스크롤 갤러리 -->
+  <div class="scroll-wrapper">
+    <div class="scroll-track">
+      <img src="j_pa2.JPG" alt="갤러리2" />
+      <img src="j_pa3.JPG" alt="갤러리3" />
+      <img src="j_pa8.JPG" alt="갤러리8" />
+      <img src="j_pa4.JPG" alt="갤러리4" />
+      <img src="j_pa9.JPG" alt="갤러리9" />
+      <img src="j_pa5.JPG" alt="갤러리5" />
+      <img src="j_pa6.JPG" alt="갤러리6" />
+      <img src="j_pa7.JPG" alt="갤러리7" />
+    </div>
+  </div>
+  <div class="parents-list">
     <div class="parents-item">
-      <img src="images/신랑부모님.jpg" alt="신랑부모님" />
+      <img src="신랑부모님.jpg" alt="신랑부모님" />
       <div class="caption">아버지 정수경 <span>📞</span></div>
       <div class="caption">어머니 신지우 <span>📞</span></div>
     </div>
     <div class="parents-item">
-      <img src="https://github.com/naegyeong2/251130-wedding-invitation/blob/main/신부부모님.jpg?raw=true" alt="신부부모님" />
+      <img src="신부부모님.jpg" alt="신부부모님" />
       <div class="caption">아버지 이동규 <span>📞</span></div>
       <div class="caption">어머니 한정순 <span>📞</span></div>
     </div>
   </div>
+  <!-- 내경 부모님 스크롤 갤러리 -->
+  <div class="scroll-wrapper">
+    <div class="scroll-track">
+      <img src="n_pa0.JPG" alt="갤러리0" />
+      <img src="n_pa1.JPG" alt="갤러리1" />
+      <img src="n_pa2.JPG" alt="갤러리2" />
+      <img src="n_pa3.JPG" alt="갤러리3" />
+      <img src="n_pa4.JPG" alt="갤러리4" />
+      <img src="n_pa5.JPG" alt="갤러리5" />
+      <img src="n_pa6.JPG" alt="갤러리6" />
+      <img src="n_pa7.JPG" alt="갤러리7" />
+      <img src="n_pa8.JPG" alt="갤러리8" />
+      <img src="n_pa9.JPG" alt="갤러리9" />
+      <img src="n_pa10.JPG" alt="갤러리10" />
+      <img src="n_pa11.JPG" alt="갤러리11" />
+      <img src="n_pa12.JPG" alt="갤러리12" />
+      <img src="n_pa13.JPG" alt="갤러리13" />
+      <img src="n_pa14.JPG" alt="갤러리14" />
+      <img src="n_pa15.JPG" alt="갤러리15" />
+      <img src="n_pa16.JPG" alt="갤러리16" />
+      <img src="n_pa17.JPG" alt="갤러리17" />
+      <img src="n_pa18.JPG" alt="갤러리18" />
+    </div>
+  </div>
+</div>
+
+
   
-  <!-- 오시는 길 -->
-  <h3>오시는 길</h3>
-  <div class="map">
-    <img src="https://github.com/naegyeong2/251130-wedding-invitation/blob/main/map.png?raw=true" alt="오시는 길 지도" />
-  </div>
-  <p class="info">
-    광명국제무역센터 지하주차장 <strong>2시간 무료 주차</strong> 가능하며<br />
-    3층 로비 또는 2층 현장지에서 주차등록 하실 수 있습니다.<br />
-    단독홀임으로 ABC동 관계 없이 편하게 주차하시고,<br /> 3층으로 올라오시면 됩니다.
-  </p>
-  <div class="buttons">
-    <button onclick="window.open('https://map.kakao.com/link/to/광명국제무역센터,37.4876,126.8821', '_blank')">카카오지도</button>
-    <button onclick="window.open('https://t.map.naver.com/route/11946742?destination=광명국제무역센터', '_blank')">티맵</button>
-    <button onclick="window.open('https://m.map.naver.com/search2/route.naver?query=광명국제무역센터', '_blank')">네이버지도</button>
-  </div>
-  <p class="disclaimer">
-    광명역 내부 광명역사컨벤션이 아닌<br />
-    광명역 외부 <strong>광명무역센터컨벤션</strong>이오니 혼동 없으시길 바랍니다.
-  </p>
-  <div class="container">
-    <h4>지하철</h4>
-    <ul>
-      <li>광명역(KTX/1호선) 5번 출구 (도보 5분)</li>
+<!-- 오시는 길 -->
+<div id="loca">
+    <h3>오시는 길</h3>
+    <!-- 카카오 지도 API 불러오기 -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4d7cd0e34c8e98c96dc5fe53187907c2"></script>
+
+    <div id="map" style="width:100%;height:200px;border-radius:0px;margin:0;padding:0;"></div>
+
+    <script>
+      var container = document.getElementById('map');
+      var options = {
+          center: new kakao.maps.LatLng(37.420139, 126.889217), // 광명무역센터컨벤션 좌표
+          level: 5 // 숫자가 작을수록 확대
+      };
+
+      var map = new kakao.maps.Map(container, options);
+
+      // 마커 표시
+      var marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(37.420139, 126.889217)
+      });
+      marker.setMap(map);
+
+    </script>
+
+    <div class="buttons">
+      <button onclick="window.open('https://kko.kakao.com/Gj3dEJkKF0', '_blank')">카카오지도</button>
+      <button onclick="window.open('https://tmap.life/814fc733', '_blank')">티맵</button>
+      <button onclick="window.open('https://naver.me/Giawrklf', '_blank')">네이버지도</button>
+    </div>
+
+    <div class="parking">
+      <strong>2시간 무료 주차</strong> 제공되며<br />
+      ABC동 관계 없이 편하게 주차하시고<br />
+      3층으로 올라오시면 됩니다.<br />
       <br />
-      <li>
-        1호선 광명역 ⇔ 영동포 배차간격 약 1시간이며<br />
-        이용 시 운행 시간 꼭 확인 바랍니다.
-      </li>
-    </ul>
+      주차등록: 3층 로비 웰컴드링크 옆 / 2층 연회장 앞<br />
+    </div>
+
+
+
+    <div class="info">
+      광명역 내부 광명역사컨벤션이 아닌<br />
+      <strong>광명역 외부 광명무역센터컨벤션</strong>이오니 혼동 없으시길 바랍니다.
+    </div>
     
-    <h4>버스</h4>
-    <ul>
-      <li>일반버스 3, 8-2, 12, 17, 22, 77, 102</li>
-      <li>간선버스 505</li>
-      <li>지선버스 5627, 5633</li>
-      <li>직행버스 3001, 3002, G9633</li>
-      <li>마을버스 1-1, 1-3, 88</li>
-    </ul>
+    <div class="transport-section">
+      <div class="transport-title">대중교통</div>
+      <div class="row">
+        <span class="bus blue">KTX</span>
+        <span class="subway">1</span>
+        <span class="numbers">광명역</span>
+      </div>
+      <div class="row">
+        <span class="bus green">마을</span>
+        <span class="numbers">88, 1-1, 1-3</span>
+      </div>
+    
+      <div class="row">
+        <span class="bus blue">일반</span>
+        <span class="numbers">102, 12, 17, 77, 3, 500, 8-2, 22</span>
+      </div>
+    
+      <div class="row">
+        <span class="bus purple">간선</span>
+        <span class="numbers">505</span>
+      </div>
+    
+      <div class="row">
+        <span class="bus teal">지선</span>
+        <span class="numbers">5627, 5633</span>
+      </div>
+    
+      <div class="row">
+        <span class="bus brown">공항</span>
+        <span class="numbers">6014</span>
+      </div>
+    </div>
   </div>
+
+
   
-  <!-- 마음 전하실 곳 (계좌번호 드롭다운 및 복사 기능) -->
+  <!-- 계좌번호 복사 (마음 전하실 곳) -->
   <h3>마음 전하실 곳</h3>
   <p>따뜻한 진심을 감사히 오래도록 잘 간직하겠습니다.</p>
   
   <div class="account-section">
-    <button class="toggle-button" onclick="toggleDropdown('groom')">신랑측 계좌번호 ▼</button>
+    <button class="btn" onclick="toggleDropdown('groom')">신랑측 계좌번호 ▼</button>
     <div class="dropdown groom-dropdown">
       <div class="dropdown-item">
-        <span>신랑 아버지</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "국민은행", "account": "111-222-3333"}'>복사</button>      </div>
+        <span>정수경</span>
+        <span class="account-bank">신한 110-412-183050</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="신한은행 110-412-183050">복사</button>
+      </div>
       <div class="dropdown-item">
-        <span>신랑 어머니</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "국민은행", "account": "111-222-3333"}'>복사</button>      </div>
+        <span>신지우</span>
+        <span class="account-bank">국민 657802-01-008487</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="국민은행 657802-01-008487">복사</button>
+      </div>
       <div class="dropdown-item">
-        <span>신랑</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "토스뱅크", "account": "1000-4176-1802"}'>복사</button>      </div>
+        <span>정재우</span>
+        <span class="account-bank">토스 1000-4176-1802</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="토스뱅크 1000-4176-1802">복사</button>
+      </div>
     </div>
   </div>
   
   <div class="account-section">
-    <button class="toggle-button" onclick="toggleDropdown('bride')">신부측 계좌번호 ▼</button>
+    <button class="btn" onclick="toggleDropdown('bride')">신부측 계좌번호 ▼</button>
     <div class="dropdown bride-dropdown">
       <div class="dropdown-item">
-        <span>신부 아버지</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "토스뱅크", "account": "1000-4661-0217"}'>복사</button>      </div>
+        <span>이동규</span>
+        <span class="account-bank">토스 1000-4661-0217</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="토스뱅크 1000-4661-0217">복사</button>
+      </div>
       <div class="dropdown-item">
-        <span>신부 어머니</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "국민은행", "account": "111-222-3333"}'>복사</button>      </div>
+        <span>한정순</span>
+        <span class="account-bank">농협 109-31-2016382</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="농협은행 109-31-2016382">복사</button>
+      </div>
       <div class="dropdown-item">
-        <span>신부</span>
-        <button class="copy-button" onclick="copyAccount(this)" data-account='{"bank": "KB국민은행", "account": "26880204176053"}'>복사</button>      </div>
+        <span>이내경</span>
+        <span class="account-bank">하나 330-910107-83807</span>
+        <button class="copy-button" onclick="copyAccount(this)" data-account="하나은행 330-910107-83807">복사</button>
+      </div>
     </div>
   </div>
+
   
-  <!-- 오버레이 (팝업 관련) -->
-  <div class="overlay" id="overlay"></div>
-  
-  <!-- RSVP 팝업 (필요 시 사용) -->
-  <div class="popup" id="rsvp1">
-    <h3>참석 여부 전달 안내</h3>
-    <p>
-      축하의 마음으로 소중한 시간을 내어<br />
-      참석해주시는 모든 분들을<br />
-      한 분 한 분 더욱 귀하게 모실 수 있도록<br />
-      참석 여부 전달을 부탁드립니다.
-    </p>
-    <button class="popup-button" id="rsvp-button-1">참석 여부 전달하기</button>
-    <label>
-      <input type="checkbox" id="privacy-consent-1" />
-      <p class="adjust-transform">오늘 하루 보지 않기</p>
-    </label>
-  </div>
-  
-  <div id="attendance-popup" class="popup hidden">
-    <h3>참석 여부 전달하기</h3>
-    <h5>참석 여부를 선택해 주세요</h5>
-    <div class="attendance-selection">
-      <button class="attendance-button" data-value="no">참석 불가</button>
-      <button class="attendance-button" data-value="yes">참석 가능</button>
-    </div>
-    <h5>소중한 인연 (모두 선택 가능)</h5>
-    <div class="side-selection">
-      <button class="side-button" data-value="groom">신랑측</button>
-      <button class="side-button" data-value="bride">신부측</button>
-    </div>
-    <h5>성함</h5>
-    <input type="text" placeholder="성함" id="name" />
-    <h5>동행인 수 (본인 제외)</h5>
-    <input type="number" placeholder="동행인 수" id="guest-count" />
-    <div id="checkbox">
-      <input type="checkbox" id="privacy-consent-2" />
-      <p class="adjust-transform">개인정보 수집 동의</p>
-    </div>
-    <button id="submit-attendance" class="popup-button">확인</button>
-  </div>
-  
+  <!-- 스크립트 -->
   <script src="script.js"></script>
 </body>
 </html>

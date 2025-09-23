@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /* 스크롤 최상단 이동 */
+    // 스크롤 최상단 이동
     window.scrollTo(0, 0);
   
     // 디데이 카운트다운
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ddayDisplay.textContent = `${displayDays}${Math.abs(hours)}시간 ${Math.abs(minutes)}분 ${Math.abs(seconds)}초 지났습니다.`;
       }
     };
+
   
     setInterval(updateDday, 1000);
     updateDday();
@@ -33,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.getElementById('close');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
   
     galleryItems.forEach((item, idx) => {
@@ -72,6 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = img.src;
       }
     }
+
+    document.querySelectorAll('.scroll-track').forEach(track => {
+      const images = track.querySelectorAll('img').length;
+      const secondsPerImage = 4; // 사진 1장당 5초
+      const duration = images * secondsPerImage;
+      track.style.animationDuration = `${duration}s`;
+    });
   
     // 드롭다운 토글 (신랑/신부)
     window.toggleDropdown = function(type) {
@@ -87,29 +95,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
-    // (1) 커스텀 알림 모달 표시 함수
-    function showCustomAlert(message) {
-      const modal = document.getElementById('custom-alert');
-      const msgEl = document.getElementById('custom-alert-message');
-      msgEl.textContent = message;
-      modal.style.display = 'flex'; // 모달 표시
-    }
   
-    // (2) 모달 닫기
-    const closeModalBtn = document.getElementById('close-custom-alert');
-    closeModalBtn.addEventListener('click', () => {
-      const modal = document.getElementById('custom-alert');
-      modal.style.display = 'none';
-    });
   
-    // 계좌번호 복사 기능
+    // 계좌번호 복사 기능 (data-account 속성의 문자열 복사)
     window.copyAccount = function(btn) {
       let accountInfo = btn.getAttribute('data-account');
   
       if (navigator.clipboard) {
         navigator.clipboard.writeText(accountInfo)
           .then(() => {
-            showCustomAlert('계좌번호가 복사되었습니다. 송금 앱에서 붙여넣기 하세요!');
+            showCustomAlert('계좌번호가 복사되었습니다');
           })
           .catch(err => {
             console.error('복사 실패:', err);
@@ -123,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textArea.select();
         try {
           document.execCommand('copy');
-          showCustomAlert('계좌번호가 복사되었습니다. 송금 앱에서 붙여넣기 하세요!');
+          showCustomAlert('계좌번호가 복사되었습니다');
         } catch (err) {
           showCustomAlert('복사에 실패했습니다. 직접 입력해 주세요.');
         }
@@ -131,5 +126,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   
-    // RSVP, 팝업 등 추가 기능(필요 시) 여기에 작성
+    // 캘린더 추가하기 기능: .ics 파일 다운로드
+    document.getElementById('add-calendar').addEventListener('click', () => {
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//재우 & 내경 결혼식//KR",
+        "BEGIN:VEVENT",
+        "UID:20251130T165000@wedding.com",
+        "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z",
+        "DTSTART:20251130T165000",
+        "DTEND:20251130T185000",
+        "SUMMARY:재우 & 내경 결혼식",
+        "LOCATION:광명무역센터컨벤션 웨딩홀",
+        "DESCRIPTION:재우 & 내경의 결혼식에 초대합니다.",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+  
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "wedding_event.ics";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showCustomAlert('캘린더 파일이 다운로드되었습니다.');
+    });
+  
+    // 추가적인 RSVP 등 기능은 필요에 따라 여기서 구현
   });

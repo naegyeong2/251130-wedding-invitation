@@ -23,7 +23,7 @@
     --font-deco: 'UnifrakturMaguntia', cursive;
   
     /* 폰트 크기 및 간격 */
-    --fz-base: 0.8rem;
+    --fz-base: 1rem;
     --fz-heading: 1.6rem;
     --line-height-base: 1.6;
     --spacing-section: 1rem;
@@ -150,7 +150,7 @@
   }
 
   #intro p {
-    font-size: clamp(12px, 3vw, 18px);
+    font-size: clamp(12px, 3.5vw, 18px);
     line-height: 1.8; /* 문단 간격 유지 */
   }
 
@@ -297,6 +297,14 @@
     margin-bottom: 10px;
   }
 
+  .parking strong {
+    font-size: min(4vw, 24px);
+    letter-spacing: 0.05em;   /* 자간 1px 넓힘 (원하는 값으로 조정) */
+    font-weight: bold;
+  }
+
+  
+
   .parking {
     padding: 3vw;
     font-size: min(3vw, 18px);
@@ -362,12 +370,7 @@
   .transport-section {
     font-family: Apple SD Gothic Neo, sans-serif;
     background-color: #fff;
-    padding: 15px 10px;
-  }
-
-  .transport-title {
-    margin-bottom: 10px;
-    font-size: 1em;
+    padding: 18px 10px 13px 10px;
   }
 
   /* 공통 row 스타일 */

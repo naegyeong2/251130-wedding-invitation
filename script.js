@@ -97,35 +97,49 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
   
-    // 계좌번호 복사 기능 (data-account 속성의 문자열 복사)
-    window.copyAccount = function(btn) {
-      let accountInfo = btn.getAttribute('data-account');
-  
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(accountInfo)
-          .then(() => {
-            showCustomAlert('계좌번호가 복사되었습니다');
-          })
-          .catch(err => {
-            console.error('복사 실패:', err);
-            showCustomAlert('복사에 실패했습니다. 직접 입력해 주세요.');
-          });
-      } else {
-        // 클립보드 API 미지원 시 fallback
-        const textArea = document.createElement('textarea');
-        textArea.value = accountInfo;
-        document.body.appendChild(textArea);
-        textArea.select();
-        try {
-          document.execCommand('copy');
-          showCustomAlert('계좌번호가 복사되었습니다');
-        } catch (err) {
-          showCustomAlert('복사에 실패했습니다. 직접 입력해 주세요.');
-        }
-        document.body.removeChild(textArea);
-      }
-    };
-  
+// 계좌번호 복사 기능
+window.copyAccount = function(btn) {
+  let accountInfo = btn.getAttribute('data-account');
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(accountInfo)
+      .then(() => {
+        showToast('복사되었습니다');
+      })
+      .catch(err => {
+        console.error('복사 실패:', err);
+        showToast('복사에 실패했습니다. 직접 입력해 주세요.');
+      });
+  } else {
+    const textArea = document.createElement('textarea');
+    textArea.value = accountInfo;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast('복사되었습니다');
+    } catch (err) {
+      showToast('복사에 실패했습니다. 직접 입력해 주세요.');
+    }
+    document.body.removeChild(textArea);
+  }
+};
+
+// ✅ 토스트 함수(클래스만 토글)
+let __toastTimer;
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+
+  // 중복 호출 시 타이머 정리
+  if (__toastTimer) clearTimeout(__toastTimer);
+
+  toast.classList.add('show');   // 보이기
+
+  __toastTimer = setTimeout(() => {
+    toast.classList.remove('show'); // 숨기기
+  }, 2000);
+}
     // 캘린더 추가하기 기능: .ics 파일 다운로드
     document.getElementById('add-calendar').addEventListener('click', () => {
       const icsContent = [
@@ -153,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      showCustomAlert('캘린더 파일이 다운로드되었습니다.');
     });
   
     // 추가적인 RSVP 등 기능은 필요에 따라 여기서 구현

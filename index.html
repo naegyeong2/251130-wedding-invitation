@@ -8,9 +8,8 @@
   
   <!-- 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="styles.css?v=20250925-2">  
   <!-- 구글 폰트 -->
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Poltawski+Nowy:ital,wght@0,400..700;1,400..700&family=UnifrakturMaguntia&display=swap" rel="stylesheet" />
   
@@ -102,13 +101,7 @@
                 </svg>
                 <span class="day-number">30</span>
               </td>
-              </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td><div class="event-text">    &larr; 16:50분 광명무역센터컨벤션 3층</div></td>
             </tr>
           </tbody>
         </table>
@@ -124,7 +117,7 @@
     <h3>함께 드리는 첫 인사</h3>
     <p>안녕하세요<br>신랑 정재우 & 신부 이내경 인사드립니다.</p>
     <p>7년간 함께하며 소중한 추억을 쌓아온 저희는<br>새로운 가정을 이루고 함께하는 삶을 시작하려 합니다.</p>
-    <p>오래도록 기억할 날이기에<br>소중한 분들을 모시고자 합니다.<br>귀한 시간을 내어 축하해 주신다면<br>깊은 감사한 마음 간직하며 서로 아끼며 살아가겠습니다.</p>
+    <p>오래도록 기억할 날이기에<br>소중한 분들을 모시고자 합니다.<br>귀한 시간을 내어 축하해 주신다면<br>감사한 마음 깊이 간직하며 서로 아끼며 살아가겠습니다.</p>
     <p>지금의 저희가 있게 해준 모든 분들께<br>진심으로 감사드립니다.</p>
   </div>
   
@@ -279,7 +272,6 @@
       단독홀이므로 ABC동 관계 없이 편하게 주차하시고<br />
       3층으로 올라오시면 됩니다.<br />
       <br />
-      <strong>2시간 무료 주차 / 700대 동시 수용 가능</strong><br />
       3층 로비와 2층 연회장 앞에서 주차등록 하실 수 있습니다.<br />
     </div>
 
@@ -370,9 +362,10 @@
       </div>
     </div>
   </div>
-
+<!-- 토스트 메시지 박스 -->
+<div id="toast" class="toast"></div>
   
-  <!-- 스크립트 -->
-  <script src="script.js"></script>
+<!-- 스크립트 -->
+<script src="script.js"></script>
 </body>
 </html>

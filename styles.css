@@ -130,7 +130,7 @@
     display: block;
     margin: 17rem auto 17rem auto;
     }
-  
+
   /***********************************************************
    * 5. 메인, 디데이, 인트로
    ***********************************************************/
@@ -486,7 +486,7 @@
   width: 100%;
   height: 100%;
   fill: none;
-  stroke: #ffcece
+  stroke: #ffcece;
   overflow: visible;      /* 칸 밖으로 넘쳐도 보이게 */
 
   stroke-width: 2;
@@ -502,6 +502,13 @@
   font-size: 1rem;
   color: #d32f2f;
   z-index: 1;
+}
+.event-text {
+  font-size: 0.88rem;
+  margin-top: 0.3rem;
+  text-align: left; /* 달력 칸 안에서 정렬 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  color: #333;
 }
 
 @keyframes drawHeart {
@@ -568,7 +575,6 @@
    * 10. 팝업 버튼, 커스텀 모달
    ***********************************************************/
   .popup-button {
-    .popup-button {
       display: block;
       width: 100%;
       margin: 1rem 0;
@@ -578,7 +584,6 @@
       border-radius: 10px;
       font-size: 1rem;
       font-weight: 500;
-      color: #;
       cursor: pointer;
       transition: background 0.3s ease, transform 0.2s ease;
     }
@@ -623,5 +628,25 @@
     .time { font-size: 1.5rem; }
   }
 
+/* ✅ 토스트 메시지 박스 */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 12vh;               /* 사용자가 보고있는 화면 하단 기준 */
+  transform: translateX(-50%) translateY(8px);
+  background: #35322ecc;        /* 배경 */
+  color: #fff;                /* 글자색 */
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  z-index: 2147483647;        /* 최상단 */
+  pointer-events: none;       /* 토스트 위 클릭 통과 */
+  opacity: 0;                 /* 기본은 숨김 */
+  transition: opacity .25s ease, transform .25s ease;
+}
 
-  
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -109,14 +109,25 @@
         </table>
       </div>
       <div class="calendar-section">
-        <a class="btn" 
-           href="wedding_event.ics" 
-           type="text/calendar"
-           target="_blank"
-           rel="noopener">
-           캘린더 추가하기
-        </a>
+        <button class="btn" id="universal-calendar">캘린더에 추가하기</button>
       </div>
+      
+      <script>
+      document.getElementById('universal-calendar').addEventListener('click', () => {
+        const ua = navigator.userAgent.toLowerCase();
+        const isIOS = /iphone|ipad|ipod/.test(ua);
+        const isKakao = /kakaotalk/.test(ua);
+      
+        if (isIOS && !isKakao) {
+          // 아이폰 + Safari/외부 브라우저 → .ics 파일 열기
+          window.location.href = "wedding_event.ics";
+        } else {
+          // 그 외(안드로이드, 카톡 인앱, PC 등) → Google 캘린더 링크
+          window.open("https://calendar.google.com/calendar/render?action=TEMPLATE&text=%EC%9E%AC%EC%9A%B0+%26+%EB%82%B4%EA%B2%BD+%EA%B2%B0%ED%98%BC%EC%8B%9D&dates=20251130T075000Z/20251130T095000Z&details=%EC%9E%AC%EC%9A%B0+%26+%EB%82%B4%EA%B2%BD%EC%9D%98+%EA%B2%B0%ED%98%BC%EC%8B%9D%EC%97%90+%EC%B4%88%EB%8C%80%ED%95%A9%EB%8B%88%EB%8B%A4.&location=%EA%B4%91%EB%AA%85%EB%AC%B4%EC%97%AD%EC%84%BC%ED%84%B0%EC%BB%A8%EB%B2%A4%EC%85%98+%EC%9B%A8%EB%94%A9%ED%99%80",
+            "_blank");
+        }
+      });
+      </script>
     </div>
   </div>
 

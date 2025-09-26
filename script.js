@@ -81,20 +81,46 @@ document.addEventListener('DOMContentLoaded', () => {
       track.style.animationDuration = `${duration}s`;
     });
   
-    // 드롭다운 토글 (신랑/신부)
-    window.toggleDropdown = function(type) {
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(dd => {
-        if (!dd.classList.contains(`${type}-dropdown`)) {
-          dd.style.display = 'none';
-        }
-      });
-      const selectedDropdown = document.querySelector(`.${type}-dropdown`);
-      if (selectedDropdown) {
-        selectedDropdown.style.display = (selectedDropdown.style.display === 'block') ? 'none' : 'block';
+// 드롭다운 토글 (신랑/신부)
+window.toggleDropdown = function(type, btn) {
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  // 다른 드롭다운 닫기 + 버튼 active 해제
+  dropdowns.forEach(dd => {
+    if (!dd.classList.contains(`${type}-dropdown`)) {
+      dd.style.display = 'none';
+      const prevBtn = dd.previousElementSibling;
+      if (prevBtn && prevBtn.classList) {
+        prevBtn.classList.remove('active');
+        prevBtn.setAttribute('aria-expanded', 'false');
       }
-    };
+    }
+  });
+
+  // 현재 대상
+  const selectedDropdown = document.querySelector(`.${type}-dropdown`);
+  if (!selectedDropdown) return;
+
+  const willOpen = selectedDropdown.style.display !== 'block';
+  selectedDropdown.style.display = willOpen ? 'block' : 'none';
+
+  // 버튼(화살표) 상태 토글
+  const headerBtn = btn || selectedDropdown.previousElementSibling;
+  if (headerBtn && headerBtn.classList) {
+    headerBtn.classList.toggle('active', willOpen);
+    headerBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+  }
+};
   
+//주차안내
+    document.querySelectorAll('.accordion-header').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+    
+        content.classList.toggle('open');
+        button.classList.toggle('active');
+      });
+    });
   
   
 // 계좌번호 복사 기능

@@ -71,7 +71,44 @@
   /***********************************************************
  * 3. 공통 유틸리티 - 버튼 스타일
  ***********************************************************/
- .btn {
+ /* 계좌 드롭다운 토글 버튼 */
+.account-toggle{
+  position: relative;
+  display: block;          /* flex 사용 안 함 */
+  width: 100%;
+  text-align: center;      /* 버튼 텍스트를 정확히 중앙으로 */
+  padding: 1rem 4rem 1rem 1rem; /* 오른쪽 여백(화살표 자리 확보) */
+  background: #F1EDEB;     /* 필요 시 기존 배경색으로 유지 */
+  color: #35322e;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 얇은 chevron */
+.account-toggle .arrow{
+  position: absolute;
+  right: 20px;             /* 오른쪽 고정 */
+  top: 45%;
+  width: 10px; height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);     /* ▼ */
+  transition: transform .3s ease;
+}
+
+.account-toggle.active .arrow{
+  transform: translateY(-50%) rotate(-135deg);   /* ▲ */
+}
+
+/* 열렸을 때 (▲) */
+.account-toggle.active .arrow{
+  transform:rotate(-135deg);
+}
+
+.btn {
   display: block;
   width: 100%;
   margin: 0;
@@ -302,20 +339,103 @@
     margin-bottom: 10px;
   }
 
-  .parking strong {
-    font-size: min(4vw, 24px);
-    letter-spacing: 0.05em;   /* 자간 1px 넓힘 (원하는 값으로 조정) */
-    font-weight: bold;
-  }
+/*--------------------------------------주차안내영역--------------------------------------*/
+/* 아코디언 컨테이너 */
+.accordion {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
-  
+/* 아코디언 헤더 */
+.accordion-header {
+  width: 100%;
+  padding: 3vw 6vw;
+  font-size: min(3vw, 18px);
+  font-weight: 500;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between; /* 텍스트 왼쪽 / 아이콘 오른쪽 */
+  align-items: center;
+  text-align: left;
+  transition: background 0.3s ease;
+  color: #4a443d;
+}
 
-  .parking {
-    padding: 3vw;
-    font-size: min(3vw, 18px);
-    margin: 10px 0px;
-    background-color: #ffffff;
-  }
+
+.accordion-header.active {
+  background-color: #ffffff; /* 열렸을 때 색상 */
+}
+
+/* 화살표 (CSS로 구현) */
+.chevron {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg); /* ▼ */
+  transition: transform 0.3s ease;
+  vertical-align: middle;   /* 글자와 세로 위치 맞춤 */
+  margin-top: -2px;         /* 원하는 만큼 위로 올림 */
+
+}
+.accordion-header.active .chevron {
+  transform: rotate(-135deg); /* ▲ */
+}
+
+/* 아코디언 내용 */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  background-color: #ffffff;
+  padding: 0 3vw;
+}
+.accordion-content.open {
+  max-height: 500px;
+  font-size: min(3vw, 18px);
+}
+
+/* ✅ 주차 안내 아이템 */
+.parking-item {
+  display: flex;
+  align-items: flex-start;   /* 위쪽 정렬 */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.parking-item .num {
+  font-size: 2rem;         /* 숫자 크게 */
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+  flex-shrink: 0;            /* 숫자 크기 고정 */
+  width: 3rem;               /* 숫자 영역 넓이 */
+  text-align: center;
+}
+
+.parking-item .desc strong {
+  display: block;
+  text-align: left;
+  font-size: 1rem;
+  color: #000;
+}
+
+.parking-item .desc p {
+  font-size: min(3vw, 18px);
+  text-align: left;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/*--------------------------------------주차안내영역--------------------------------------*/
+
+
 
   .scroll-wrapper {
     overflow: hidden;

@@ -12,8 +12,9 @@
  }
  
  
- h3 {
+h3 {
   margin-bottom: 1.5rem; /* 기본보다 여유 있게 */
+  font-size: 1.5rem;
 }
  :root {
  
@@ -24,8 +25,8 @@
     --font-deco: 'UnifrakturMaguntia', cursive;
   
     /* 폰트 크기 및 간격 */
-    --fz-base: 1rem;
-    --fz-heading: 1.6rem;
+    --fz-base: 1.2rem;
+    --fz-heading: 3rem;
     --line-height-base: 1.6;
     --spacing-section: 1rem;
     --spacing-inner: 1rem;
@@ -79,11 +80,11 @@
   text-align: center;      /* 버튼 텍스트를 정확히 중앙으로 */
   padding: 1rem 4rem 1rem 1rem; /* 오른쪽 여백(화살표 자리 확보) */
   background: #F1EDEB;     /* 필요 시 기존 배경색으로 유지 */
-  color: #35322e;
+  color: #333;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
   cursor: pointer;
 }
 
@@ -116,9 +117,8 @@
   background-color: #F1EDEB;
   border: none;
   border-radius: 12px;
-  font-size: 1rem;
   font-weight: 500;
-  color: #35322e;
+  color: #333;
   cursor: pointer;
   transition: background 0.3s ease;
   font-family: var(--font-base)
@@ -334,7 +334,7 @@
   }
   .info {
     padding: 3vw;
-    font-size: min(3vw, 18px);
+    font-size: min(4.3vw, 18px);
     background-color: #ffffff;
     margin-bottom: 10px;
   }
@@ -351,7 +351,7 @@
 .accordion-header {
   width: 100%;
   padding: 3vw 6vw;
-  font-size: min(3vw, 18px);
+  font-size: min(3.8vw, 18px);
   font-weight: 500;
   border: none;
   background-color: #ffffff;
@@ -361,7 +361,7 @@
   align-items: center;
   text-align: left;
   transition: background 0.3s ease;
-  color: #4a443d;
+  color: #333;
 }
 
 
@@ -421,15 +421,17 @@
   display: block;
   text-align: left;
   font-size: 1rem;
-  color: #000;
+  color: #333;
+  font-family:var(--font-heading)
 }
 
 .parking-item .desc p {
-  font-size: min(3vw, 18px);
+  font-size: min(3.6vw, 18px);
   text-align: left;
   color: #444;
   line-height: 1.6;
   margin: 0;
+  font-family:var(--font-heading)
 }
 
 
@@ -509,10 +511,10 @@
     color: #fff;
     background: #2d6de6; /* 파란색 (1호선) */
     border-radius: 50%;
-    padding: 2.5px 8.3px 0.2px 8.3px;
+    padding: 2.6px 9.5px 0.2px 9.5px;
     margin-right: 8px;
     font-weight: bold;
-    font-size: 0.7em;
+    font-size: 0.9rem;
     white-space: nowrap;
   }
 
@@ -522,7 +524,7 @@
     padding: 2px 8px 1px 8px;
     border-radius: 8px;
     color: #fff;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 500;
     margin-right: 8px;
     white-space: nowrap;
@@ -530,7 +532,7 @@
 
   /* 번호 텍스트 */
   .numbers {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: #333;
   }
 
@@ -540,7 +542,7 @@
   .bus.purple { background: #8e44ad; } /* 간선버스 */
   .bus.teal { background: #16a085; }   /* 지선버스 */
   .bus.brown { background: #a0522d; }  /* 공항버스 */
-
+  .bus.red { background: #ce2a2a; }  /* 공항버스 */
   
   /***********************************************************
    * 8. 달력 (calendar-view)

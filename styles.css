@@ -446,9 +446,9 @@ h3 {
 .scroll-wrapper {
   overflow: hidden;
   width: 100vw;   /* 뷰포트 전체 너비 */
-  height: 166px;
-  background: #F1EDEB;   /* 전체 배경 흰색 */
-  padding: 8px 0;       /* 위아래 패딩 (액자 상하 두께) */
+  height: 180px;
+  background: #ffffff;   /* 전체 배경 흰색 */
+  padding: 5px 0;       /* 위아래 패딩 (액자 상하 두께) */
   box-sizing: border-box;
   margin-left: calc(-50vw + 50%); /* 중앙 맞추기 */
   margin-right: calc(-50vw + 50%); 
@@ -456,15 +456,15 @@ h3 {
 
 .scroll-track {
   display: inline-flex;
-  gap: 8px;             /* 이미지 사이 간격 */
+  gap: 5px;             /* 이미지 사이 간격 */
   animation: scroll-left 30s linear infinite;
   background: transparent;  /* ✅ 투명하게 */
 
 }
 
 .scroll-track img {
-  width: 150px;
-  height: 150px;
+  width: 170px;
+  height: 170px;
   object-fit: cover;
   display: block;
 }

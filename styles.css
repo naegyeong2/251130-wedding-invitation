@@ -506,8 +506,8 @@ h3 {
   /* 공통 row 스타일 */
   .row {
     display: flex;
-    align-items: center;
-    margin: 0px 10px 6px 10px;
+    align-items: first baseline;
+    margin: 0px 0px 6px 10px;
   }
 
   /* 지하철 뱃지 */
@@ -536,7 +536,8 @@ h3 {
 
   /* 번호 텍스트 */
   .numbers {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    text-align: left;
     color: #333;
   }
 
